@@ -61,17 +61,18 @@ export const SITES = {
 };
 
 export const SPAWNS = {
+  // Yaw follows three.js YXZ: yaw -PI/2 faces +X (east), +PI/2 faces -X (west).
   wardens: [
-    { x: -28, z: -6, yaw: Math.PI / 2 },
-    { x: -28, z: 0, yaw: Math.PI / 2 },
-    { x: -28, z: 6, yaw: Math.PI / 2 },
-    { x: -26, z: 0, yaw: Math.PI / 2 },
+    { x: -28, z: -6, yaw: -Math.PI / 2 },
+    { x: -28, z: 0, yaw: -Math.PI / 2 },
+    { x: -28, z: 6, yaw: -Math.PI / 2 },
+    { x: -26, z: 0, yaw: -Math.PI / 2 },
   ],
   jackals: [
-    { x: 28, z: -6, yaw: -Math.PI / 2 },
-    { x: 28, z: 0, yaw: -Math.PI / 2 },
-    { x: 28, z: 6, yaw: -Math.PI / 2 },
-    { x: 26, z: 0, yaw: -Math.PI / 2 },
+    { x: 28, z: -6, yaw: Math.PI / 2 },
+    { x: 28, z: 0, yaw: Math.PI / 2 },
+    { x: 28, z: 6, yaw: Math.PI / 2 },
+    { x: 26, z: 0, yaw: Math.PI / 2 },
   ],
 };
 

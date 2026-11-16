@@ -691,6 +691,11 @@ function resetRoundState(round) {
   p.grenades = 0;
   p.alive = true;
   p.recoil = 0;
+  // Fresh match (round 1, 0-0): back to the free sidearm.
+  if (round === 1 && rounds.state.scoreW === 0 && rounds.state.scoreJ === 0) {
+    if (G.player.weaponId !== 'p9') equipWeapon('p9');
+    else p.weapon = createWeaponState('p9');
+  }
   if (G.player.weaponId !== 'p9') equipWeapon(G.player.weaponId);
   else {
     p.weapon = createWeaponState('p9');
@@ -830,7 +835,7 @@ function runShot(name) {
   hud.hideOverlay();
   if (name === 'title') {
     G.player.pos.set(-20, 0, 10);
-    G.player.yaw = 1.15;
+    G.player.yaw = -1.2;
     G.player.pitch = -0.02;
     bots.reset(1);
     syncCamera();
@@ -840,9 +845,9 @@ function runShot(name) {
     rounds.startMatch();
     rounds.state.money = 3200;
     hud.setMoney(3200);
-    G.player.pos.set(-26, 0, -2);
-    G.player.yaw = 1.9;
-    G.player.pitch = -0.03;
+    G.player.pos.set(-20, 0, 0);
+    G.player.yaw = -1.57;
+    G.player.pitch = -0.02;
     syncCamera();
     settle(10);
     hud.showBuy(true, 3200);
@@ -877,7 +882,7 @@ function runShot(name) {
     rounds.state.phase = 'matchEnd';
     rounds.state.matchWinner = 'wardens';
     G.player.pos.set(-20, 0, 10);
-    G.player.yaw = 1.15;
+    G.player.yaw = -1.2;
     G.player.pitch = -0.02;
     bots.reset(1);
     syncCamera();
